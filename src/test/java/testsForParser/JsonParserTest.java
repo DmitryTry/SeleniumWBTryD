@@ -11,20 +11,19 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+
 class JsonParserTest {
 
-    private Gson gson;
-    private JsonParser jsonParser;
-    private Cart cart;
-    private Path pathToFile;
-    private String fileExtension;
+    private static Gson gson;
+    private static JsonParser jsonParser;
+    private static Cart cart;
+    private static Path pathToFile;
+    private static String fileExtension;
 
     @BeforeAll
-    void setUp() {
+    public static void setUp() {
         gson = new Gson();
         jsonParser = new JsonParser();
         cart = new Cart("Cart1");
@@ -40,32 +39,36 @@ class JsonParserTest {
     }
 
     @AfterAll
-    void cleanData() throws IOException {
+    public static void cleanData() throws IOException {
         Files.deleteIfExists(Paths.get(pathToFile + fileExtension));
     }
 
+    @DisplayName("Check write to file")
     @Test
-    void writeToFile() throws IOException {
+    public void writeToFileTest() throws IOException {
         jsonParser.writeToFile(cart);
         Reader reader = new FileReader(pathToFile + fileExtension);
         Cart actualCart = gson.fromJson(reader, Cart.class);
         reader.close();
 
         assertAll(
+                () -> assertFalse(Files.exists(Paths.get(pathToFile + fileExtension, "File doesn't exist"))),
                 () -> assertEquals(cart.getCartName(), actualCart.getCartName()),
                 () -> assertEquals(cart.getTotalPrice(), actualCart.getTotalPrice())
         );
     }
 
     @Disabled
+    @DisplayName("Check read from file")
     @Test
-    void readFromFile() throws IOException {
+    public void readFromFileTest() throws IOException {
         FileWriter writer = new FileWriter(pathToFile + fileExtension);
         writer.write(gson.toJson(cart));
         writer.close();
         Cart expectedCart = jsonParser.readFromFile(new File(pathToFile + fileExtension));
 
         assertAll(
+                () -> assertFalse(Files.exists(Paths.get(pathToFile + fileExtension, "File doesn't exist"))),
                 () -> assertEquals(expectedCart.getTotalPrice(), cart.getTotalPrice()),
                 () -> assertEquals(expectedCart.getCartName(), cart.getCartName())
         );
