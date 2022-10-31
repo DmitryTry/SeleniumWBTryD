@@ -23,6 +23,6 @@ class RealItemTest {
     @Test
     public void checkDisplayFormatTest() {
         assertEquals(car.toString(), String.format("Class: %s; Name: %s; Price: %s; Weight: %s",
-                car.getClass(), car.getName(), car.getPrice(), car.getWeight()));
+                car.getClass(), car.getName(), car.getPrice(), car.getWeight()), "Display message isn't correct");
     }
 }

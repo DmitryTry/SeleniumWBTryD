@@ -16,7 +16,7 @@ class CartTest {
     private static VirtualItem disk2;
 
     @BeforeAll
-    static void setUp() {
+    public static void setUp() {
         cart = new Cart("Cart1");
         car = new RealItem();
         car.setName("Lada");
@@ -37,27 +37,23 @@ class CartTest {
         disk2.setSizeOnDisk(8000);
     }
 
-    @DisplayName("Check cart name and total price")
+    @DisplayName("Check cart name and total price") // failed test with error message
     @Test
-    void CartNameAndTotalPriceTest() {
-        String expectedCartName = cart.getCartName();
-        double expectedTotalPrice = (car.getPrice() + disk.getPrice()) * 1.2;
+    public void cartNameAndTotalPriceTest() {
+        String expectedCartName = "Cart1";
+        double expectedTotalPrice = (car.getPrice() + disk2.getPrice());
 
         assertAll("Cart name and price after cart creation",
-                () -> assertEquals(expectedCartName, cart.getCartName()),
-                () -> assertEquals(expectedTotalPrice, cart.getTotalPrice())
+                () -> assertEquals(expectedCartName, cart.getCartName(), "Cart name is wrong!"),
+                () -> assertEquals(expectedTotalPrice, cart.getTotalPrice(), "Total price isn't expected")
         );
     }
 
     @DisplayName("Check add new item to cart")
     @Test
-    void AddNewItemToCartTest() {
+    public void addNewItemToCartTest() {
         double priceBefore = cart.getTotalPrice();
-        cart.addVirtualItem(disk2);
-
-        assertAll("Comparing priceBefore to actual price of cart",
-                () -> assertTrue(priceBefore < cart.getTotalPrice()),
-                () -> assertNotEquals(priceBefore, cart.getTotalPrice())
-        );
+        cart.addVirtualItem(disk);
+        assertTrue(priceBefore < cart.getTotalPrice(), "New item has not been added");
     }
 }

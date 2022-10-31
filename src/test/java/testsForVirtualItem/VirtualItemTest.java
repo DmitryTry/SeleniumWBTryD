@@ -21,6 +21,6 @@ public class VirtualItemTest {
     @Test
     public void checkMessageSizeDiskTest() {
         String expectedString = String.valueOf(disk.getSizeOnDisk());
-        assertTrue(disk.toString().contains(expectedString));
+        assertTrue(disk.toString().contains(expectedString), "Size on disk is wrong!");
     }
 }

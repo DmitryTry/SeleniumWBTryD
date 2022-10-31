@@ -53,8 +53,8 @@ class JsonParserTest {
 
         assertAll(
                 () -> assertFalse(Files.exists(Paths.get(pathToFile + fileExtension, "File doesn't exist"))),
-                () -> assertEquals(cart.getCartName(), actualCart.getCartName()),
-                () -> assertEquals(cart.getTotalPrice(), actualCart.getTotalPrice())
+                () -> assertEquals(cart.getCartName(), actualCart.getCartName(), "Error for writing to file"),
+                () -> assertEquals(cart.getTotalPrice(), actualCart.getTotalPrice(), "Error for writing to file")
         );
     }
 
@@ -69,8 +69,8 @@ class JsonParserTest {
 
         assertAll(
                 () -> assertFalse(Files.exists(Paths.get(pathToFile + fileExtension, "File doesn't exist"))),
-                () -> assertEquals(expectedCart.getTotalPrice(), cart.getTotalPrice()),
-                () -> assertEquals(expectedCart.getCartName(), cart.getCartName())
+                () -> assertEquals(expectedCart.getTotalPrice(), cart.getTotalPrice(), "Error for reading from file"),
+                () -> assertEquals(expectedCart.getCartName(), cart.getCartName(), "Error for reading from file")
         );
     }
 }
