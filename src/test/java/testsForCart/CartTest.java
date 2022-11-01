@@ -42,7 +42,7 @@ public class CartTest {
     public void cartNameAndTotalPriceTest() {
         double expectedTotalPrice = (car.getPrice() + disk2.getPrice());
         assertAll("Cart name and price after cart creation",
-                () -> assertEquals("Cart2", cart.getCartName(), "Cart name is wrong!"),
+                () -> assertEquals("Cart1", cart.getCartName(), "Cart name is wrong!"),
                 () -> assertEquals(expectedTotalPrice, cart.getTotalPrice(), "Total price isn't expected")
         );
     }
