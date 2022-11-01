@@ -7,7 +7,7 @@ import shop.RealItem;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class RealItemTest {
+public class RealItemTest {
 
     private static RealItem car;
 

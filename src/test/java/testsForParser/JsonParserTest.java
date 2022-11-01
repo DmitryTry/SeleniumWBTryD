@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-class JsonParserTest {
+public class JsonParserTest {
 
     private static Gson gson;
     private static JsonParser jsonParser;

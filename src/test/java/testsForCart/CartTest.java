@@ -8,7 +8,7 @@ import shop.VirtualItem;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CartTest {
+public class CartTest {
 
     private static Cart cart;
     private static RealItem car;
@@ -40,11 +40,9 @@ class CartTest {
     @DisplayName("Check cart name and total price") // failed test with error message
     @Test
     public void cartNameAndTotalPriceTest() {
-        String expectedCartName = "Cart1";
         double expectedTotalPrice = (car.getPrice() + disk2.getPrice());
-
         assertAll("Cart name and price after cart creation",
-                () -> assertEquals(expectedCartName, cart.getCartName(), "Cart name is wrong!"),
+                () -> assertEquals("Cart2", cart.getCartName(), "Cart name is wrong!"),
                 () -> assertEquals(expectedTotalPrice, cart.getTotalPrice(), "Total price isn't expected")
         );
     }
