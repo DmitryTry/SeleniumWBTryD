@@ -10,15 +10,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CartTest {
 
+    public static final String expectedCartName = "Cart1";
     private static Cart cart;
-    public static final String expectedResult = ("Cart1");
     private static RealItem car;
     private static VirtualItem disk;
     private static VirtualItem disk2;
 
     @BeforeAll
     public static void setUp() {
-        cart = new Cart("Cart1");
+        cart = new Cart(expectedCartName);
         car = new RealItem();
         car.setName("Lada");
         car.setPrice(12500);
@@ -43,7 +43,7 @@ public class CartTest {
     public void cartNameAndTotalPriceTest() {
         double expectedTotalPrice = (car.getPrice() + disk2.getPrice());
         assertAll("Cart name and price after cart creation",
-                () -> assertEquals(expectedResult, cart.getCartName(), "Cart name is wrong!"),
+                () -> assertEquals(expectedCartName, cart.getCartName(), "Cart name is wrong!"),
                 () -> assertEquals(expectedTotalPrice, cart.getTotalPrice(), "Total price isn't expected")
         );
     }
