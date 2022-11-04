@@ -1,4 +1,4 @@
-package testsForVirtualItem;
+package jUnitTests.virtualItem;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;

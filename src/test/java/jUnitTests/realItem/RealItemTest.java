@@ -1,4 +1,4 @@
-package testsForRealItem;
+package jUnitTests.realItem;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
