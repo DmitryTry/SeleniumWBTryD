@@ -1,4 +1,4 @@
-package testsForParser;
+package jUnitTests.parser;
 
 import com.google.gson.Gson;
 import org.junit.jupiter.api.*;

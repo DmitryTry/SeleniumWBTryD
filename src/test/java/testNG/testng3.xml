@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parser tests">
+    <test name="Tests for read from file">
+        <packages>
+            <package name="testNG.parser.*"/>
+        </packages>
+        <classes>
+            <class name="testNG.parser.JsonParserTest">
+                <methods>
+                    <exclude name="writeToFileTest" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
