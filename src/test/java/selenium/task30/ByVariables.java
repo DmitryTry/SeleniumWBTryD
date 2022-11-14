@@ -1,29 +1,25 @@
 package selenium.task30;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 
 public class ByVariables {
 
-    public static void main(String[] args) {
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+    public static final By NAME = By.name("login");
+    public static final By XPATH = By.xpath("//div[@class='PageWrapper_2aGaNaGauHNRzr8W2U0GwV']");
+    public static final By LINK_TEXT = By.linkText("Get started with Premium");
+    public static final By CSS_SELECTOR = By.cssSelector("div[class='Text_S6Oq9oB2XJtxRu7BNIqYk']");
+    public static final By TAG_NAME = By.tagName("div");
+    public static final By PARTIAL_LINK_TEXT = By.partialLinkText("24-hour support");
+    public static final By CLASS_NAME = By.className("AuthSocialBlock");
+    public static final By ID = By.id("passp:exp-register");
 
-        driver.get("https://mail.yandex.com/");
-        driver.findElement(By.xpath("//div[@class='PageWrapper_2aGaNaGauHNRzr8W2U0GwV']")).isDisplayed();
-        driver.findElement(By.linkText("Get started with Premium")).isDisplayed();
-        driver.findElement(By.cssSelector("div[class='Text_S6Oq9oB2XJtxRu7BNIqYk']")).isDisplayed();
-        driver.findElement(By.tagName("div")).isDisplayed();
-        driver.findElement(By.partialLinkText("24-hour support")).isDisplayed();
-        driver.findElement(By.xpath("//script[@type='text/javascript']")).isDisplayed();
+    // constants used in the test
+    public static final By LOGIN_BUTTON = By.xpath("//button[@autocomplete='off']");
+    public static final By USERNAME_FIELD = By.xpath("//input[@id='passp-field-login']");
+    public static final By SIGN_IN_BUTTON = By.xpath("//button[@id='passp:sign-in']");
+    public static final By PASSWORD_FIELD = By.xpath("//input[@id='passp-field-passwd']");
+    public static final By HOME_YA_MAIL_PAGE = By.xpath("//div[@class='mail-Layout-Main js-mail-layout-content']");
 
-        driver.get("https://passport.yandex.com/");
-        driver.findElement(By.name("login")).isDisplayed();
-        driver.findElement(By.className("AuthSocialBlock")).isDisplayed();
-        driver.findElement(By.id("passp:exp-register")).isDisplayed();
-        driver.close();
-        System.out.println("All elements was found");
-    }
+
 }
