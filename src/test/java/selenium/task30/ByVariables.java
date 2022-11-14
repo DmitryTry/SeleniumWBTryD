@@ -17,6 +17,7 @@ public class ByVariables {
         driver.findElement(By.cssSelector("div[class='Text_S6Oq9oB2XJtxRu7BNIqYk']")).isDisplayed();
         driver.findElement(By.tagName("div")).isDisplayed();
         driver.findElement(By.partialLinkText("24-hour support")).isDisplayed();
+        driver.findElement(By.xpath("//script[@type='text/javascript']")).isDisplayed();
 
         driver.get("https://passport.yandex.com/");
         driver.findElement(By.name("login")).isDisplayed();
