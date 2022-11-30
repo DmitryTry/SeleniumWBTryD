@@ -1,43 +1,24 @@
-package selenium.task40.tableSortSearch;
+package selenium.task40.search;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import selenium.task40.TestSettings;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TableSortSearchTest {
+public class TableSortSearchTest extends TestSettings {
 
-    private WebDriver driver;
-
-    @BeforeEach
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
-    }
-
-    @AfterEach
-    public void closeDriver() {
-        driver.quit();
-    }
 
     @DisplayName("Select for Age>60 and Salary<199999 - Test")
     @ParameterizedTest
     @CsvSource({"60, 199999"})
     public void tableSortSearchTest(int targetAge, int targetSalary) {
-        driver.get("https://demo.seleniumeasy.com/table-sort-search-demo.html");
+        driver.get(testProperties.getProperty("seleniumeasy.search-url"));
         Select dropdown = new Select(driver.findElement(By.xpath("//select[@name='example_length']")));
         dropdown.selectByValue("10");
         List<WorkerTable> workers = sortedList(targetAge, targetSalary);

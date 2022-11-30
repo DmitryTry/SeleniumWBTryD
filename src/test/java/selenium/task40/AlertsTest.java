@@ -1,30 +1,16 @@
 package selenium.task40;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.time.Duration;
+import static selenium.task40.ByVariables.*;
 
-public class AlertsTest {
-
-    public WebDriver driver;
-    public WebElement confirmBoxButton;
-    public WebElement confirmResult;
+public class AlertsTest extends TestSettings {
 
     @BeforeEach
     public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        driver.get("https://demo.seleniumeasy.com/javascript-alert-box-demo.html");
-        confirmBoxButton = driver.findElement(By.xpath("//button[contains(@onclick, 'myConfirm')]"));
-        confirmResult = driver.findElement(By.xpath("//p[@id='confirm-demo']"));
+        driver.get(testProperties.getProperty("seleniumeasy.alerts-url"));
     }
 
     @AfterEach
@@ -35,6 +21,8 @@ public class AlertsTest {
     @DisplayName("JS Confirm Box Accept Test")
     @Test
     public void jsConfirmBoxAcceptTest() {
+        WebElement confirmBoxButton = driver.findElement(CONFIRM_BOX);
+        WebElement confirmResult = driver.findElement(CONFIRM_RESULT);
         confirmBoxButton.click();
         driver.switchTo().alert().accept();
 
@@ -44,6 +32,8 @@ public class AlertsTest {
     @DisplayName("JS Confirm Box Decline Test")
     @Test
     public void jsConfirmBoxDeclineTest() {
+        WebElement confirmBoxButton = driver.findElement(CONFIRM_BOX);
+        WebElement confirmResult = driver.findElement(CONFIRM_RESULT);
         confirmBoxButton.click();
         driver.switchTo().alert().dismiss();
 
@@ -53,11 +43,9 @@ public class AlertsTest {
     @DisplayName("JS Alert Box Test")
     @Test
     public void jsAlertBoxTest() {
-        driver.findElement(By.xpath("//button[contains(@onclick, 'myAlert')]"))
-                .click();
+        driver.findElement(ALERT_BUTTON).click();
         Alert alert = driver.switchTo().alert();
 
-        Assertions.assertTrue(alert.getText()
-                .equalsIgnoreCase("I am an alert box!"), "Element not found!");
+        Assertions.assertTrue(alert.getText().equalsIgnoreCase("I am an alert box!"), "Element not found!");
     }
 }

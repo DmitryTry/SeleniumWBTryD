@@ -1,4 +1,4 @@
-package selenium.task40.tableSortSearch;
+package selenium.task40.search;
 
 import static java.lang.String.format;
 

@@ -16,12 +16,10 @@ public class ByVariables {
 
     // constants used in the tests
     public static final By LOGIN_BUTTON = By.xpath("//button[@autocomplete='off']");
-    public static final By USERNAME_FIELD = By.xpath("//input[@id='passp-field-login']");
-    public static final By SIGN_IN_BUTTON = By.xpath("//button[@id='passp:sign-in']");
-    public static final By PASSWORD_FIELD = By.xpath("//input[@id='passp-field-passwd']");
+    public static final By USERNAME_FIELD = By.id("passp-field-login");
+    public static final By SIGN_IN_BUTTON = By.id("passp:sign-in");
+    public static final By PASSWORD_FIELD = By.id("passp-field-passwd");
     public static final By HOME_YA_MAIL_PAGE = By.xpath("//div[@class='mail-Layout-Main js-mail-layout-content']");
-    public static final By PERCENT_TEXT = By.xpath("//div[@class='percenttext']");
-    public static final By USER_LOADING = By.xpath("//div[@id='loading']");
 
 
 }

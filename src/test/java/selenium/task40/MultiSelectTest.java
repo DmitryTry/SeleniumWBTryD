@@ -1,42 +1,25 @@
 package selenium.task40;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MultiSelectTest {
+import static selenium.task40.ByVariables.MULTISELECT_LIST;
 
-    private WebDriver driver;
-
-    @BeforeEach
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-    }
-
-    @AfterEach
-    public void closeDriver() {
-        driver.quit();
-    }
+public class MultiSelectTest extends TestSettings {
 
     @DisplayName("Select for three options - Test")
     @Test
     public void selectOptionsTest() {
-        driver.get("https://demo.seleniumeasy.com/basic-select-dropdown-demo.html");
-        WebElement list = driver.findElement(By.xpath("//select[@id='multi-select']"));
+        driver.get(testProperties.getProperty("seleniumeasy.dropdown-url"));
+        WebElement list = driver.findElement(MULTISELECT_LIST);
         Select multiSelectList = new Select(list);
         List<String> expectedOptions = new ArrayList<>(Arrays.asList("Florida", "Ohio", "Texas"));
         for (String state : expectedOptions) {

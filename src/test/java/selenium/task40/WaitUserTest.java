@@ -1,42 +1,28 @@
 package selenium.task40;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static selenium.task30.ByVariables.USER_LOADING;
+import static selenium.task40.ByVariables.*;
 
-public class WaitUserTest {
 
-    private WebDriver driver;
+public class WaitUserTest extends TestSettings {
 
-    @BeforeEach
-    public void setUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
-
-    @AfterEach
-    public void closeDriver() {
-        driver.quit();
-    }
 
     @DisplayName("Waiting for the user loading - Test")
     @Test
     public void waitUserDisplayTest() {
         WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(20));
-        driver.get("https://demo.seleniumeasy.com/dynamic-data-loading-demo.html");
-        driver.findElement(By.xpath("//button[@id='save']")).click();
+        driver.get(testProperties.getProperty("seleniumeasy.loading-url"));
+        driver.findElement(GET_NEW_USER_BUTTON).click();
         webDriverWait.until(ExpectedConditions.and(ExpectedConditions.textToBePresentInElement(driver.findElement(USER_LOADING), "First Name : "),
                 ExpectedConditions.textToBePresentInElement(driver.findElement(USER_LOADING), "Last Name :")));
 
-        Assertions.assertTrue(driver.findElement(By.xpath("//div[@id='loading']/img")).isDisplayed(), "User not displayed");
+        Assertions.assertTrue(driver.findElement(USER_IMG).isDisplayed(), "User not displayed");
     }
 }
