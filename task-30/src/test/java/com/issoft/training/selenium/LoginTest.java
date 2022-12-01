@@ -1,4 +1,4 @@
-package selenium.task30;
+package com.issoft.training.selenium;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
@@ -7,7 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.time.Duration;
 
-import static selenium.task30.ByVariables.*;
+import static com.issoft.training.helpers.ByVariables.*;
+
 
 public class LoginTest {
 
