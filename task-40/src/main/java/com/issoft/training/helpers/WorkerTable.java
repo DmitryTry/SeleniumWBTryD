@@ -1,4 +1,4 @@
-package selenium.task40.search;
+package com.issoft.training.helpers;
 
 import static java.lang.String.format;
 

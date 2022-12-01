@@ -1,10 +1,11 @@
-package selenium.task40;
+package com.issoft.training.selenium;
 
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
+import com.issoft.training.settings.TestSettings;
 
-import static selenium.task40.ByVariables.*;
+import static com.issoft.training.helpers.ByVariables.*;
 
 public class AlertsTest extends TestSettings {
 

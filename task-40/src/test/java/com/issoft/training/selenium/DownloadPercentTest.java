@@ -1,15 +1,16 @@
-package selenium.task40;
+package com.issoft.training.selenium;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import com.issoft.training.settings.TestSettings;
 
 import java.time.Duration;
 
-import static selenium.task40.ByVariables.DOWNLOAD_BUTTON;
-import static selenium.task40.ByVariables.PERCENT_TEXT;
+import static com.issoft.training.helpers.ByVariables.DOWNLOAD_BUTTON;
+import static com.issoft.training.helpers.ByVariables.PERCENT_TEXT;
 
 public class DownloadPercentTest extends TestSettings {
 

@@ -1,14 +1,15 @@
-package selenium.task40;
+package com.issoft.training.selenium;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import com.issoft.training.settings.TestSettings;
 
 import java.time.Duration;
 
-import static selenium.task40.ByVariables.*;
+import static com.issoft.training.helpers.ByVariables.*;
 
 
 public class WaitUserTest extends TestSettings {

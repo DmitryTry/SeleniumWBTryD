@@ -1,4 +1,4 @@
-package selenium.task40;
+package com.issoft.training.helpers;
 
 import org.openqa.selenium.By;
 

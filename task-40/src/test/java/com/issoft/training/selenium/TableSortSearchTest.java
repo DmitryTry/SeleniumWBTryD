@@ -1,4 +1,4 @@
-package selenium.task40.search;
+package com.issoft.training.selenium;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -6,7 +6,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import selenium.task40.TestSettings;
+import com.issoft.training.settings.TestSettings;
+import com.issoft.training.helpers.WorkerTable;
 
 import java.util.ArrayList;
 import java.util.List;

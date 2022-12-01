@@ -1,4 +1,4 @@
-package selenium.task40;
+package com.issoft.training.selenium;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -6,10 +6,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import com.issoft.training.settings.TestSettings;
 
 import java.time.Duration;
 
-import static selenium.task40.ByVariables.*;
+import static com.issoft.training.helpers.ByVariables.*;
 
 public class ParametrizedLoginTest extends TestSettings {
     private static final String EXPECTED_TITLE = "Inbox";
