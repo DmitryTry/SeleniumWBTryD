@@ -1,4 +1,4 @@
-package selenium.task30;
+package com.issoft.training.helpers;
 
 import org.openqa.selenium.By;
 
@@ -14,11 +14,11 @@ public class ByVariables {
     public static final By CLASS_NAME = By.className("AuthSocialBlock");
     public static final By ID = By.id("passp:exp-register");
 
-    // constants used in the test
+    // constants used in the tests
     public static final By LOGIN_BUTTON = By.xpath("//button[@autocomplete='off']");
-    public static final By USERNAME_FIELD = By.xpath("//input[@id='passp-field-login']");
-    public static final By SIGN_IN_BUTTON = By.xpath("//button[@id='passp:sign-in']");
-    public static final By PASSWORD_FIELD = By.xpath("//input[@id='passp-field-passwd']");
+    public static final By USERNAME_FIELD = By.id("passp-field-login");
+    public static final By SIGN_IN_BUTTON = By.id("passp:sign-in");
+    public static final By PASSWORD_FIELD = By.id("passp-field-passwd");
     public static final By HOME_YA_MAIL_PAGE = By.xpath("//div[@class='mail-Layout-Main js-mail-layout-content']");
 
 

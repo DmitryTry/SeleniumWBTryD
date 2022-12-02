@@ -1,13 +1,14 @@
-package selenium.task30;
+package com.issoft.training.selenium;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
-import static selenium.task30.ByVariables.*;
+import static com.issoft.training.helpers.ByVariables.*;
+
 
 public class LoginTest {
 
@@ -17,6 +18,7 @@ public class LoginTest {
     private static final String EXPECTED_URL = "https://mail.yandex.com/?uid=1711957842#tabs/relevant";
 
 
+
     private WebDriver driver;
 
     @BeforeEach
@@ -24,7 +26,7 @@ public class LoginTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
     }
 
     @AfterEach
