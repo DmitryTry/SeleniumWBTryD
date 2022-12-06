@@ -19,9 +19,9 @@ public class YandexInboxPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(messageBox));
     }
 
-    public YandexSignInPage logout() {
+    public void logout() {
         driver.findElement(userMenu).click();
         driver.findElement(logoutButton).click();
-        return new YandexSignInPage();
+        new YandexSignInPage();
     }
 }
