@@ -3,11 +3,11 @@ package com.issoft.training.selenium;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
-import com.issoft.training.settings.TestSettings;
+import com.issoft.training.settings.TestBase;
 
 import static com.issoft.training.helpers.ByVariables.*;
 
-public class AlertsTest extends TestSettings {
+public class AlertsTest extends TestBase {
 
     @BeforeEach
     public void setUp() {

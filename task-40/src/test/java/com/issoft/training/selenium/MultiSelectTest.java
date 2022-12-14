@@ -1,20 +1,19 @@
 package com.issoft.training.selenium;
 
+import com.issoft.training.settings.TestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import com.issoft.training.settings.TestSettings;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 import static com.issoft.training.helpers.ByVariables.MULTISELECT_LIST;
 
-public class MultiSelectTest extends TestSettings {
+public class MultiSelectTest extends TestBase {
 
     @DisplayName("Select for three options - Test")
     @Test
@@ -22,7 +21,8 @@ public class MultiSelectTest extends TestSettings {
         driver.get(testProperties.getProperty("seleniumeasy.dropdown-url"));
         WebElement list = driver.findElement(MULTISELECT_LIST);
         Select multiSelectList = new Select(list);
-        List<String> expectedOptions = new ArrayList<>(Arrays.asList("Florida", "Ohio", "Texas"));
+        List<String> expectedOptions = new Random().ints(3, 0, multiSelectList.getOptions().size()).boxed()
+                .map(i -> multiSelectList.getOptions().get(i).getText()).collect(Collectors.toList());
         for (String state : expectedOptions) {
             multiSelectList.selectByVisibleText(state);
         }

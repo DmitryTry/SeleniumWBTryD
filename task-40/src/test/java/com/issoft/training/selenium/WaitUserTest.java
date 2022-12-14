@@ -5,14 +5,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.issoft.training.settings.TestSettings;
+import com.issoft.training.settings.TestBase;
 
 import java.time.Duration;
 
 import static com.issoft.training.helpers.ByVariables.*;
 
 
-public class WaitUserTest extends TestSettings {
+public class WaitUserTest extends TestBase {
 
 
     @DisplayName("Waiting for the user loading - Test")
