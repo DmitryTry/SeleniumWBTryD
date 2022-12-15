@@ -18,5 +18,8 @@ public class ByVariables {
     public static final By MULTISELECT_LIST = By.id("multi-select");
     public static final By DOWNLOAD_BUTTON = By.id("cricle-btn");
     public static final By ALERT_BUTTON = By.xpath("//button[contains(@onclick, 'myAlert')]");
+    public static final By LIST_LENGTH = By.xpath("//select[@name='example_length']");
+    public static final By TAB_ROW = By.xpath("//tbody/tr");
+    public static final By NEXT_BTN = By.id("example_next");
 
 }
