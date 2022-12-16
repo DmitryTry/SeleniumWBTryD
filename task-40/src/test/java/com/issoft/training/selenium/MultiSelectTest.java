@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -28,6 +29,8 @@ public class MultiSelectTest extends TestBase {
         }
         List<String> selectedOptions = multiSelectList.getAllSelectedOptions().stream()
                 .map(WebElement::getText).collect(Collectors.toList());
+        Collections.sort(expectedOptions);
+        Collections.sort(selectedOptions);
 
         Assertions.assertEquals(expectedOptions, selectedOptions, "Options not found!");
     }

@@ -21,6 +21,7 @@ public class DownloadPercentTest extends TestBase {
 
         new WebDriverWait(driver, Duration.ofSeconds(30), Duration.ofMillis(50))
                 .until(driver -> driver.findElement(PERCENT_TEXT).getText().contains("50"));
-        Assertions.assertEquals("50%", driver.findElement(PERCENT_TEXT).getText(), "Percent text not found");
+        driver.navigate().refresh();
+        Assertions.assertTrue(driver.findElement(DOWNLOAD_BUTTON).isDisplayed(), "Download button is not found");
     }
 }
