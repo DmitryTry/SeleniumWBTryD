@@ -23,6 +23,7 @@
     <modules>
         <module>task-30</module>
         <module>task-40</module>
+        <module>task-60</module>
     </modules>
 
     <dependencies>
