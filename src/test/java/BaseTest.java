@@ -6,6 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 public class BaseTest {
     protected YandexEntryPage yandexEntryPage;
 
+    public static final String USER_NAME = "SeleniumTestTru";
+    public static final String PASSWORD = "SeleniumTestTru_QwE1";
+
     @BeforeEach
     public void startBrowser() {
         yandexEntryPage = new YandexEntryPage();
