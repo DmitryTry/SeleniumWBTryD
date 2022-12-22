@@ -1,16 +1,10 @@
 package com.training.page;
 
-import com.training.driver.WebDriverSingleton;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class YandexInboxPage {
+public class YandexInboxPage extends BasePage {
 
     @FindBy(xpath = "//div[@data-key='box=left-box']")
     private WebElement messageBox;
@@ -22,13 +16,17 @@ public class YandexInboxPage {
     private WebElement logoutButton;
 
     public YandexInboxPage() {
-        WebDriver driver = WebDriverSingleton.getInstance().getDriver();
+        super();
         PageFactory.initElements(driver, this);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        wait.until(ExpectedConditions.visibilityOf(messageBox));
+    }
+
+    public boolean isDisplayed() {
+        wait.waitForElementLocated(messageBox);
+        return isDisplayed(messageBox);
     }
 
     public void logout() {
+        wait.waitForElementLocated(messageBox);
         userMenu.click();
         logoutButton.click();
         new YandexSignInPage();

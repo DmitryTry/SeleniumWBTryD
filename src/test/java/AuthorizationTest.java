@@ -1,42 +1,35 @@
-import com.training.driver.WebDriverSingleton;
-import com.training.page.YandexEntryPage;
 import com.training.page.YandexInboxPage;
 import com.training.page.YandexSignInPage;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-public class AuthorizationTest {
-    private YandexEntryPage yandexEntryPage;
+public class AuthorizationTest extends BaseTest {
+    private static final String USER_NAME = "SeleniumTestTru";
+    private static final String PASSWORD = "SeleniumTestTru_QwE1";
     private YandexSignInPage yandexSignInPage;
     private YandexInboxPage yandexInboxPage;
 
     @BeforeEach
-    public void setUp() {
-        yandexEntryPage = new YandexEntryPage();
-    }
-
-    @AfterEach
-    public void close() {
-        WebDriverSingleton.getInstance().driverClose();
+    public void navigateToLogin() {
+        yandexSignInPage = yandexEntryPage.navigateToSignInPage();
+        yandexInboxPage = yandexSignInPage.login(USER_NAME, PASSWORD);
     }
 
     @DisplayName("Login to Yandex")
     @Test
     public void loginYandexTest() {
-        yandexSignInPage = yandexEntryPage.navigateToSignInPage();
-        yandexInboxPage = yandexSignInPage.login("SeleniumTestTru", "SeleniumTestTru_QwE1");
-
-        Assertions.assertTrue(WebDriverSingleton.getInstance().getDriver().getTitle().contains("Inbox — Yandex Mail")
-                , "You are on wrong page. Please check the page!");
+        Assertions.assertTrue(yandexInboxPage.isDisplayed(),
+                "You are on wrong page. Please check the page!");
     }
 
     @DisplayName("Logout from Yandex")
     @Test
     public void logoutYandexTest() {
-        yandexSignInPage = yandexEntryPage.navigateToSignInPage();
-        yandexInboxPage = yandexSignInPage.login("SeleniumTestTru", "SeleniumTestTru_QwE1");
         yandexInboxPage.logout();
 
-        Assertions.assertTrue(WebDriverSingleton.getInstance().getDriver().getTitle().contains("reliable and easy to use")
-                , "You are on wrong page. Please check the page!");
+        Assertions.assertTrue(yandexSignInPage.getTitle().contains("reliable and easy to use"),
+                "You are on wrong page. Please check the page!");
     }
 }

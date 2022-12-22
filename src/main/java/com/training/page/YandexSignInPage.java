@@ -1,12 +1,10 @@
 package com.training.page;
 
-import com.training.driver.WebDriverSingleton;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class YandexSignInPage {
+public class YandexSignInPage extends BasePage {
     @FindBy(id="passp-field-login")
     private WebElement loginField;
 
@@ -17,7 +15,7 @@ public class YandexSignInPage {
     private WebElement signInButton;
 
     public YandexSignInPage() {
-        WebDriver driver = WebDriverSingleton.getInstance().getDriver();
+        super();
         PageFactory.initElements(driver, this);
     }
 
