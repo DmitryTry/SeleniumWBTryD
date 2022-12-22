@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 
 public class AuthorizationTest extends BaseTest {
 
+    private static final String USER_NAME = "SeleniumTestTru";
+    private static final String PASSWORD = "SeleniumTestTru_QwE1";
     private YandexSignInPage yandexSignInPage;
     private YandexInboxPage yandexInboxPage;
 
