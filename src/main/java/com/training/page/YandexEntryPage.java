@@ -1,11 +1,15 @@
 package com.training.page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class YandexEntryPage  extends BasePage {
 
-    private static final By LOGIN_BUTTON = By.xpath("//button[@autocomplete='off']");
     private final static String INITIAL_URL = "https://mail.yandex.com/";
+
+    public WebElement getLoginButton() {
+        return driver.findElement(By.xpath("//button[@autocomplete='off']"));
+    }
 
     public YandexEntryPage() {
         super();
@@ -16,7 +20,7 @@ public class YandexEntryPage  extends BasePage {
     }
 
     public YandexSignInPage navigateToSignInPage() {
-        driver.findElement(LOGIN_BUTTON).click();
+        getLoginButton().click();
         return new YandexSignInPage();
     }
 }

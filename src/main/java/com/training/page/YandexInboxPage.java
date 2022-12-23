@@ -1,12 +1,18 @@
 package com.training.page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class YandexInboxPage extends BasePage {
 
     private final static By MESSAGE_BOX = By.xpath("//div[@data-key='box=left-box']");
-    private final static By USER_MENU = By.xpath("//span[@class='user-account__name']/following-sibling::div");
-    private static final By LOGOUT_BUTTON = By.xpath("//a[contains(@class, 'item_action_exit')]");
+
+    public WebElement getUserMenu(){
+        return driver.findElement(By.xpath("//span[@class='user-account__name']/following-sibling::div"));
+    }
+    public WebElement getLogoutButton(){
+        return driver.findElement(By.xpath("//a[contains(@class, 'item_action_exit')]"));
+    }
 
     public YandexInboxPage() {
         super();
@@ -19,8 +25,8 @@ public class YandexInboxPage extends BasePage {
 
     public void logout() {
         wait.waitForElementLocated(MESSAGE_BOX);
-        driver.findElement(USER_MENU).click();
-        driver.findElement(LOGOUT_BUTTON).click();
+        getUserMenu().click();
+        getLogoutButton().click();
         new YandexSignInPage();
     }
 }
