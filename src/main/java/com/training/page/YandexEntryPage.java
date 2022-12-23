@@ -6,6 +6,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class YandexEntryPage extends BasePage {
 
+    public static final String INITIAL_URL = "https://mail.yandex.com/";
+
     @FindBy(xpath = "//button[@autocomplete='off']")
     private WebElement loginButton;
 

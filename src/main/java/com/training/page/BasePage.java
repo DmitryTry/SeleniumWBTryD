@@ -21,6 +21,4 @@ public class BasePage {
     public boolean isDisplayed(WebElement element) {
         return element.isDisplayed();
     }
-
-    public static final String INITIAL_URL = "https://mail.yandex.com/";
 }
