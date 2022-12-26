@@ -2,7 +2,6 @@ package com.training.page;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 public class YandexInboxPage extends BasePage {
 
@@ -17,7 +16,6 @@ public class YandexInboxPage extends BasePage {
 
     public YandexInboxPage() {
         super();
-        PageFactory.initElements(driver, this);
     }
 
     public boolean isDisplayed() {
