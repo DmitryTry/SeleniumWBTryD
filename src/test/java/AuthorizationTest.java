@@ -21,18 +21,19 @@ public class AuthorizationTest extends BaseTest {
     @DisplayName("Login to Yandex")
     @Test
     public void loginYandexTest() throws IOException {
+        createScreenshot("YandexHomePage");
+
         Assertions.assertTrue(yandexInboxPage.isDisplayed(),
                 "You are on wrong page. Please check the page!");
-        createScreenshot("YandexHomePage");
     }
 
     @DisplayName("Logout from Yandex")
     @Test
     public void logoutYandexTest() throws IOException {
         yandexInboxPage.logout();
+        createScreenshot("YandexStartPage");
 
         Assertions.assertTrue(yandexSignInPage.getTitle().contains("reliable and easy to use"),
                 "You are on wrong page. Please check the page!");
-        createScreenshot("YandexStartPage");
     }
 }

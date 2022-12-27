@@ -27,17 +27,9 @@ public class BaseTest {
         Driver.tearDown();
     }
 
-    public void createNewFolder(String path) {
-        File dir = new File(path);
-        if (!dir.exists()) {
-            dir.mkdirs();
-        }
-    }
-
     public void createScreenshot(String screenshotName) throws IOException {
-        createNewFolder("src/test/java/Screenshots/");
         File src = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(src, new File("src/test/java/Screenshots/" + screenshotName
+        FileUtils.copyFile(src, new File("target/Screenshots/" + screenshotName
                 + RandomStringUtils.randomNumeric(5) + ".png"));
     }
 }
